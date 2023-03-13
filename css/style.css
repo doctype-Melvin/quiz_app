@@ -1,3 +1,5 @@
+@import "./bookmark.css";
+
 *,
 *::before,
 *::after {
@@ -107,6 +109,10 @@ main {
 footer {
   width: 100vw;
   margin-top: 25px;
+}
+
+.active {
+  background-color: var(--contrast-red);
 }
 
 .footer_link > img {
