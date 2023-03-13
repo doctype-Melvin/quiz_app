@@ -25,6 +25,11 @@ main {
   top: 150px;
 }
 
+.saved {
+  filter: invert(81%) sepia(91%) saturate(554%) hue-rotate(234deg)
+    brightness(88%) contrast(90%);
+}
+
 .details {
   align-items: center;
   justify-content: space-evenly;
@@ -78,6 +83,8 @@ main {
   border-radius: 50px;
   background-color: var(--contrast-green);
 }
+
+/* Toggle Switch Dark Mode */
 
 .switch {
   position: relative;
