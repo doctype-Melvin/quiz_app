@@ -27,6 +27,7 @@
   flex: 1 1 100px;
   margin: 0 15px;
   text-align: justify;
+  max-width: 50vw;
 }
 
 .about > h2 {
@@ -35,7 +36,7 @@
 
 .counters {
   flex: 1 1 auto;
-  width: 100vw;
+  width: 250px;
   justify-content: space-around;
   align-items: center;
 }
