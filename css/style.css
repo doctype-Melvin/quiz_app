@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main: #464f51;
+  --dark: #000009;
+  --contrast-light: #defff2;
+  --contrast-green: #0ff4c6;
+  --contrast-red: #d68fd6;
+}
+
 html,
 body {
   padding: 0;
@@ -17,6 +25,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
 h1 {
@@ -31,11 +40,12 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  background-color: bisque;
-  max-width: 500px;
-  padding: 20px 30px;
+  background-color: var(--contrast-light);
+  width: clamp(200px, 300px, 500px);
+  min-height: 200px;
+  padding: 20px 30px 10px 30px;
 }
 
 .bookmark {
@@ -44,9 +54,61 @@ main {
   right: 10px;
 }
 
+.card__question {
+  min-width: 250px;
+}
+
 .tags {
+  align-self: flex-start;
   list-style-type: none;
   display: flex;
   padding: 0;
   margin: 0;
+  gap: 10px;
+}
+
+.card__answer {
+  padding: 15px 20px;
+  border: 2px var(--contrast-green) solid;
+  background-color: var(--contrast-light);
+  color: var(--main);
+  transition: 0.2s;
+}
+
+.card__answer:hover {
+  background-color: var(--contrast-red);
+  cursor: pointer;
+  color: var(--dark);
+}
+
+.card__answer,
+.tags > li {
+  border-radius: 5px;
+}
+
+.tags > li {
+  background-color: var(--contrast-red);
+  padding: 5px;
+}
+
+footer {
+  width: 100vw;
+}
+
+.footer_link > img {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+
+.footer_link > img:hover {
+  background-color: var(--contrast-red);
+  border-radius: 5px;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: var(--contrast-light);
 }
