@@ -106,6 +106,7 @@ main {
 
 footer {
   width: 100vw;
+  margin-top: 25px;
 }
 
 .footer_link > img {
