@@ -16,6 +16,15 @@
   display: flex;
 }
 
+body {
+  position: relative;
+}
+
+main {
+  position: absolute;
+  top: 150px;
+}
+
 .details {
   align-items: center;
   justify-content: space-evenly;

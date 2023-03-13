@@ -6,55 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="main.js"></script>
   </head>
   <body>
     <header class="header">
       <section class="title__Ct">
         <h1>Quiz App</h1>
       </section>
-      <main>
-        <!-- Question box 1 -->
-        <section class="q__card">
-          <button type="button" class="bookmark__btn">
-            <img
-              class="bookmark"
-              src="./assets/bookmark-white.png"
-              alt="not-bookmarked"
-              width="25px"
-            />
-          </button>
-          <span class="card__question">
-            What property flips the axes in flexbox?
-          </span>
-          <button type="button" class="card__answer">Show Answer</button>
-          <ul class="tags">
-            <li>#html</li>
-            <li>#flexbox</li>
-            <li>#css</li>
-          </ul>
-        </section>
-        <!-- Question box 2 -->
-        <section class="q__card">
-          <a class="bookmark__btn">
-            <img
-              class="bookmark"
-              src="./assets/bookmark.png"
-              alt="not-bookmarked"
-              width="25px"
-            />
-          </a>
-          <span class="card__question">
-            What is the answer to this tricky question?
-          </span>
-          <button type="button" class="card__answer">Show Answer</button>
-          <ul class="tags">
-            <li>#html</li>
-            <li>#flexbox</li>
-            <li>#css</li>
-          </ul>
-        </section>
-      </main>
     </header>
+    <main>
+      <!-- Question box 1 -->
+      <section class="q__card">
+        <a class="bookmark__btn">
+          <img
+            class="bookmark"
+            src="./assets/bookmark.svg"
+            alt="not-bookmarked"
+            width="25px"
+          />
+        </a>
+        <span class="card__question">
+          What property flips the axes in flexbox?
+        </span>
+        <button type="button" class="card__answer">Show Answer</button>
+        <ul class="tags">
+          <li>#html</li>
+          <li>#flexbox</li>
+          <li>#css</li>
+        </ul>
+      </section>
+      <!-- Question box 2 -->
+      <section class="q__card">
+        <a class="bookmark__btn">
+          <img
+            class="bookmark saved"
+            src="./assets/bookmark.svg"
+            alt="not-bookmarked"
+            width="25px"
+          />
+        </a>
+        <span class="card__question">
+          What is the answer to this tricky question?
+        </span>
+        <button type="button" class="card__answer">Show Answer</button>
+        <ul class="tags">
+          <li>#html</li>
+          <li>#flexbox</li>
+          <li>#css</li>
+        </ul>
+      </section>
+    </main>
   </body>
   <footer>
     <section class="footer__links">
@@ -67,7 +68,7 @@
       </a>
       <a href="./bookmarks.html" class="footer_link">
         <img
-          src="./assets/bookmark-white.png"
+          src="./assets/bookmark.svg"
           alt="go-to-bookmarks"
           class="footer_icon"
         />
