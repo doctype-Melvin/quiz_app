@@ -1,5 +1,6 @@
-@import "./bookmark.css";
+@import "./profile.css";
 @import "./tooltip.css";
+@import "./grid.css";
 
 *,
 *::before,
@@ -23,8 +24,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body,
-main {
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,11 +38,17 @@ h1 {
   font-size: 2.2rem;
 }
 
-main {
-  gap: 20px;
+.dark {
+  background-color: var(--main);
+  color: var(--contrast-light);
+  transition: 0.4s;
 }
 
-.q__card {
+.header {
+  width: 100vw;
+}
+
+.quiz__card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -55,12 +61,12 @@ main {
   box-shadow: 1px 1px 15px var(--main);
 }
 
-/* .bookmark, */
 .bookmark {
   position: absolute;
   top: -4px;
   right: 10px;
   cursor: pointer;
+  width: 25px;
 }
 
 .card__question {
@@ -92,7 +98,7 @@ main {
 .card__answer:hover {
   background-color: var(--contrast-red);
   cursor: pointer;
-  color: var(--dark);
+  color: var(--contrast-light);
 }
 
 .card__answer,
@@ -110,18 +116,18 @@ footer {
   margin-top: 25px;
 }
 
-.active {
+.footer__icon--active {
   background-color: var(--contrast-red);
   border-radius: 5px;
 }
 
-.footer_link > img {
+.footer__link > img {
   width: 50px;
   height: 50px;
   padding: 5px;
 }
 
-.footer_link > img:hover {
+.footer__link > img:hover {
   background-color: var(--contrast-red);
   border-radius: 5px;
 }

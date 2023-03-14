@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="./JS/toggle.js"></script>
   </head>
   <body>
     <header class="header">
@@ -13,75 +14,82 @@
         <h1>Quiz App</h1>
       </section>
     </header>
-    <main>
-      <section class="details">
-        <img
-          src="./assets/icons8-geschlechtsneutraler-benutzer-100.png"
-          alt="user-image"
-        />
-        <span class="username">Benedita Calista da Silva</span>
-      </section>
-      <section class="about">
-        <h2>About me</h2>
-        <p class="about_me">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores
-          delectus facere eaque debitis dolorum, quaerat alias vitae dolorem!
-          Nihil expedita dolorum commodi, ut reiciendis molestiae.
-        </p>
-      </section>
-      <!--    Counters     -->
-      <section class="counters">
-        <div class="open_questions tooltip">
-          <span class="tooltiptext">Open questions</span>
+    <main data-js="main">
+      <section class="details__container" data-js="detailsCt">
+        <section class="details">
           <img
-            class="counter_img"
-            src="./assets/icons8-question-60.png"
-            alt="open-questions"
+            src="./assets/icons8-geschlechtsneutraler-benutzer-100.png"
+            alt="user-image"
           />
-          <span class="value">15</span>
-        </div>
-        <div class="saved_questions tooltip">
-          <span class="tooltiptext">Saved questions</span>
-          <img
-            class="counter_img"
-            src="./assets/bookmark_saved.svg"
-            alt="saved-questions"
-          />
-          <span class="value">2</span>
-        </div>
-      </section>
-      <section class="settings">
-        <span>Settings</span>
-        <div class="toggle__switch">
-          <span>Dark Mode</span>
-          <label for="switch" class="switch">
-            <input type="checkbox" name="switch" id="switch" />
-            <span class="slider"></span>
-          </label>
-        </div>
+          <span class="username">Benedita Calista da Silva</span>
+        </section>
+        <section class="about">
+          <h2>About me</h2>
+          <p class="about__me">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores
+            delectus facere eaque debitis dolorum, quaerat alias vitae dolorem!
+            Nihil expedita dolorum commodi, ut reiciendis molestiae.
+          </p>
+        </section>
+        <!--    Counters     -->
+        <section class="counters">
+          <div class="open__questions tooltip">
+            <span class="tooltiptext">Open questions</span>
+            <img
+              class="counter__img"
+              src="./assets/icons8-question-60.png"
+              alt="open-questions"
+            />
+            <span class="value">15</span>
+          </div>
+          <div class="saved__questions tooltip">
+            <span class="tooltiptext">Saved questions</span>
+            <img
+              class="counter__img"
+              src="./assets/bookmark_saved.svg"
+              alt="saved-questions"
+            />
+            <span class="value">2</span>
+          </div>
+        </section>
+        <section class="settings">
+          <span>Settings</span>
+          <div class="toggle__switch">
+            <span>Dark Mode</span>
+            <label for="switch" class="switch">
+              <input
+                type="checkbox"
+                data-js="toggleMode"
+                name="switch"
+                id="switch"
+              />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </section>
       </section>
     </main>
     <footer>
       <section class="footer__links">
-        <a href="./index.html" class="footer_link">
+        <a href="./index.html" class="footer__link">
           <img
             src="./assets/icons8-startseite-96.png"
             alt="home-button"
-            class="footer_icon"
+            class="footer__icon"
           />
         </a>
-        <a href="./bookmarks.html" class="footer_link">
+        <a href="./bookmarks.html" class="footer__link">
           <img
             src="./assets/bookmark.svg"
             alt="go-to-bookmarks"
-            class="footer_icon"
+            class="footer__icon"
           />
         </a>
-        <a href="./profile.html" class="footer_link">
+        <a href="./profile.html" class="footer__link">
           <img
             src="./assets/icons8-geschlechtsneutraler-benutzer-100.png"
             alt="go-to-user-profile"
-            class="footer_icon active"
+            class="footer__icon footer__icon--active"
           />
         </a>
       </section>
