@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <script defer src="main.js"></script>
     <title>Bookmarks</title>
   </head>
   <body>
@@ -15,41 +14,43 @@
       </section>
     </header>
     <main>
-      <!-- Question box 1 -->
-      <section class="qCard">
-        <img
-          class="bookmark saved"
-          src="./assets/bookmark_saved.svg"
-          alt="not-bookmarked"
-          width="25px"
-        />
-        <span class="cardQuestion">
-          What property flips the axes in flexbox?
-        </span>
-        <button type="button" class="card__answer">Show Answer</button>
-        <ul class="tags">
-          <li>#html</li>
-          <li>#flexbox</li>
-          <li>#css</li>
-        </ul>
-      </section>
-      <!-- Question box 2 -->
-      <section class="qCard">
-        <img
-          class="bookmark saved"
-          src="./assets/bookmark_saved.svg"
-          alt="not-bookmarked"
-          width="25px"
-        />
-        <span class="cardQuestion">
-          What is the answer to this tricky question?
-        </span>
-        <button type="button" class="cardAnswer">Show Answer</button>
-        <ul class="tags">
-          <li>#html</li>
-          <li>#flexbox</li>
-          <li>#css</li>
-        </ul>
+      <section class="favorites__grid" data-js="favorites__grid">
+        <!-- Question box 1 -->
+        <section class="qCard">
+          <img
+            class="bookmark saved"
+            src="./assets/bookmark_saved.svg"
+            alt="not-bookmarked"
+            width="25px"
+          />
+          <span class="cardQuestion">
+            What property flips the axes in flexbox?
+          </span>
+          <button type="button" class="cardAnswer">Show Answer</button>
+          <ul class="tags">
+            <li>#html</li>
+            <li>#flexbox</li>
+            <li>#css</li>
+          </ul>
+        </section>
+        <!-- Question box 2 -->
+        <section class="qCard">
+          <img
+            class="bookmark saved"
+            src="./assets/bookmark_saved.svg"
+            alt="not-bookmarked"
+            width="25px"
+          />
+          <span class="cardQuestion">
+            What is the answer to this tricky question?
+          </span>
+          <button type="button" class="cardAnswer">Show Answer</button>
+          <ul class="tags">
+            <li>#html</li>
+            <li>#flexbox</li>
+            <li>#css</li>
+          </ul>
+        </section>
       </section>
     </main>
     <footer>

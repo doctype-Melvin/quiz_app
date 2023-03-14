@@ -38,6 +38,11 @@ h1 {
   font-size: 2.2rem;
 }
 
+.dark {
+  background-color: var(--main);
+  color: var(--contrast-light);
+}
+
 .header {
   width: 100vw;
 }
