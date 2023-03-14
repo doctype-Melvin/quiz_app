@@ -1,47 +1,51 @@
 // Selects the grid container
 const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
-//Function to create cards objects
-const elFactory = (type, attr, css, content, src) => {
-  const element = document.createElement(type);
-  element.setAttribute("data-js", attr);
-  element.classList.add(css);
-  if (src !== "") element.src = src;
-  if (content !== "") {
-    element.textContent = content;
-  } else {
-    element.textContent = "";
-  }
-  return element;
+const _data = [
+  {
+    question: "Where is Waldo?",
+    answer: "Hidden",
+    tags: ["html", "css", "flexbox"],
+  },
+  {
+    question: "What's for lunch?",
+    answer: "Steak and eggs",
+    tags: ["food", "lunch", "yummy"],
+  },
+];
+
+const cardFactory = (data) => {
+  const card = document.createElement("section");
+  card.classList.add("qCard");
+  card.setAttribute("data-js", "qCard");
+  const bookmark = document.createElement("img");
+  bookmark.classList.add("bookmark");
+  bookmark.setAttribute("data-js", "bookmark");
+  bookmark.src = "./assets/bookmark_saved.svg";
+  const question = document.createElement("span");
+  question.classList.add("cardQuestion");
+  question.setAttribute("data-js", "cardQuestion");
+  question.textContent = data.question;
+  const button = document.createElement("button");
+  button.classList.add("cardAnswer");
+  button.setAttribute("data-js", "cardAnswer");
+  button.type = "submit";
+  button.textContent = "Show Answer";
+  const tagsCt = document.createElement("ul");
+  tagsCt.classList.add("tags");
+  tagsCt.setAttribute("data-js", "tags");
+  const tag = document.createElement("li");
+
+  card.append(bookmark, question, button, tagsCt);
+  cardsGrid.append(card);
 };
 
-const cardFactory = () => {
-  const card = elFactory("section", "qCard", "q__card", "", "");
-  return card;
-};
+_data.forEach((item) => cardFactory(item));
 
-const questionCard = elFactory("section", "qCard", "q__card", "", "");
-const bookIcon = elFactory(
-  "img",
-  "bookmarkIcon",
-  "bookmark",
-  "",
-  "./assets/bookmark_saved.svg"
-);
-const question = elFactory(
-  "span",
-  "cardQuest",
-  "card__question",
-  "Where is waldo?"
-);
-const answerBtn = elFactory("button", "answBtn", "card__answer", "Show Answer");
+const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
-questionCard.append(bookIcon, question, answerBtn);
-cardsGrid.append(questionCard);
-
-const bookmarks = [...document.querySelectorAll('[data-js="bookmarkIcon"]')];
-bookmarks.forEach((item) =>
-  item.addEventListener("click", (e) => {
-    e.target.classList.toggle("saved");
+bookmarkIcons.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("saved");
   })
 );
