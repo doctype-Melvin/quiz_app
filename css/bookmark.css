@@ -52,6 +52,18 @@ main {
   width: 100%;
 }
 
+.details > img {
+  width: clamp(50px, 20%, 90px);
+  padding: 10px;
+  border-radius: 50px;
+  background-color: var(--contrast-green);
+}
+
+.username {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
 .counters {
   flex: 1 1 auto;
   width: 250px;
@@ -64,6 +76,11 @@ main {
   width: 50px;
   align-items: center;
   justify-content: space-around;
+}
+
+.open_questions:hover,
+.saved_questions:hover {
+  cursor: pointer;
 }
 
 .settings {
@@ -79,13 +96,6 @@ main {
   width: 200px;
   justify-content: space-around;
   align-items: center;
-}
-
-.details > img {
-  width: 80px;
-  padding: 10px;
-  border-radius: 50px;
-  background-color: var(--contrast-green);
 }
 
 /* Toggle Switch Dark Mode */

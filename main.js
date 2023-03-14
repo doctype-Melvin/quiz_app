@@ -9,3 +9,5 @@ bookmarks.forEach(item => item.addEventListener('click', (e) => {
         console.log(e.target.classList)
     }
 }))
+
+const darkMode = document.querySelector('.toggle__switch')
