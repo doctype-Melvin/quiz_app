@@ -12,6 +12,11 @@ const _data = [
     answer: "Steak and eggs",
     tags: ["food", "lunch", "yummy"],
   },
+  {
+    question: "What's the largest animal on earth?",
+    answer: "Blue Whale",
+    tags: ["biology", "marine", "mammals"],
+  },
 ];
 
 const cardFactory = (data) => {
