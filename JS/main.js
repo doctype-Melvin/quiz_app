@@ -51,6 +51,6 @@ const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
 bookmarkIcons.forEach((btn) =>
   btn.addEventListener("click", () => {
-    btn.classList.toggle("saved");
+    btn.classList.toggle("bookmark--saved");
   })
 );
