@@ -62,6 +62,7 @@ main {
   top: -4px;
   right: 10px;
   cursor: pointer;
+  width: 25px;
 }
 
 .card__question {

@@ -1,3 +1,5 @@
 .cards__grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
 }
