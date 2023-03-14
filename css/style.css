@@ -1,6 +1,10 @@
 @import "./bookmark.css";
 @import "./tooltip.css";
-@import "./grid.css" *, *: : before, *: : after {
+@import "./grid.css";
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
