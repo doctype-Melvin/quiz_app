@@ -41,11 +41,15 @@ main {
   flex: 1 1 100px;
   margin: 0 15px;
   text-align: justify;
-  max-width: 50vw;
+  max-width: clamp(280px, 80%, 450px);
 }
 
 .about > h2 {
   margin: 0;
+}
+
+.about_me {
+  width: 100%;
 }
 
 .counters {
