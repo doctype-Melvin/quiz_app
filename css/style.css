@@ -41,13 +41,14 @@ h1 {
 .dark {
   background-color: var(--main);
   color: var(--contrast-light);
+  transition: 0.4s;
 }
 
 .header {
   width: 100vw;
 }
 
-.qCard {
+.quiz__card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -68,7 +69,7 @@ h1 {
   width: 25px;
 }
 
-.cardQuestion {
+.card__question {
   min-width: 250px;
 }
 
@@ -86,7 +87,7 @@ h1 {
   cursor: pointer;
 }
 
-.cardAnswer {
+.card__answer {
   padding: 15px 20px;
   border: 2px var(--contrast-green) solid;
   background-color: var(--contrast-light);
@@ -94,13 +95,13 @@ h1 {
   transition: 0.2s;
 }
 
-.cardAnswer:hover {
+.card__answer:hover {
   background-color: var(--contrast-red);
   cursor: pointer;
   color: var(--contrast-light);
 }
 
-.cardAnswer,
+.card__answer,
 .tags > li {
   border-radius: 5px;
 }
@@ -115,18 +116,18 @@ footer {
   margin-top: 25px;
 }
 
-.active {
+.footer__icon--active {
   background-color: var(--contrast-red);
   border-radius: 5px;
 }
 
-.footer_link > img {
+.footer__link > img {
   width: 50px;
   height: 50px;
   padding: 5px;
 }
 
-.footer_link > img:hover {
+.footer__link > img:hover {
   background-color: var(--contrast-red);
   border-radius: 5px;
 }

@@ -16,18 +16,18 @@ const _data = [
 
 const cardFactory = (data) => {
   const card = document.createElement("section");
-  card.classList.add("qCard");
+  card.classList.add("quiz__card");
   card.setAttribute("data-js", "qCard");
   const bookmark = document.createElement("img");
   bookmark.classList.add("bookmark");
   bookmark.setAttribute("data-js", "bookmark");
   bookmark.src = "./assets/bookmark_saved.svg";
   const question = document.createElement("span");
-  question.classList.add("cardQuestion");
+  question.classList.add("card__question");
   question.setAttribute("data-js", "cardQuestion");
   question.textContent = data.question;
   const button = document.createElement("button");
-  button.classList.add("cardAnswer");
+  button.classList.add("card__answer");
   button.setAttribute("data-js", "cardAnswer");
   button.type = "submit";
   button.textContent = "Show Answer";

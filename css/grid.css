@@ -1,4 +1,4 @@
-.cardsGrid,
+.cards__grid,
 .favorites__grid {
   display: grid;
   grid-template-rows: repeat(auto-fit, 1fr);
