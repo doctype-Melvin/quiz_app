@@ -54,3 +54,11 @@ bookmarkIcons.forEach((btn) =>
     btn.classList.toggle("bookmark--saved");
   })
 );
+
+// const toggleFunction = (element) => {
+//   element.classList.toggle("dark");
+// };
+
+// const toggleSwitch = document.querySelector('[data-js="toggleMode"]');
+// const body = document.querySelector("body");
+// toggleSwitch.addEventListener("click", () => toggleFunction(body));
