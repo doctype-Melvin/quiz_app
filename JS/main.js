@@ -36,12 +36,16 @@ const cardFactory = (data) => {
   button.setAttribute("data-js", "cardAnswer");
   button.type = "submit";
   button.textContent = "Show Answer";
-  const tagsCt = document.createElement("ul");
-  tagsCt.classList.add("tags");
-  tagsCt.setAttribute("data-js", "tags");
-  const tag = document.createElement("li");
+  const tagsContainer = document.createElement("ul");
+  tagsContainer.classList.add("tags");
+  tagsContainer.setAttribute("data-js", "tags");
+  data.tags.forEach((element) => {
+    const tag = document.createElement("li");
+    tag.textContent = `#${element}`;
+    tagsContainer.append(tag);
+  });
 
-  card.append(bookmark, question, button, tagsCt);
+  card.append(bookmark, question, button, tagsContainer);
   cardsGrid.append(card);
 };
 
