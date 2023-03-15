@@ -1,6 +1,7 @@
 @import "./profile.css";
 @import "./tooltip.css";
 @import "./grid.css";
+@import "./card.css";
 
 *,
 *::before,
@@ -38,77 +39,16 @@ h1 {
   font-size: 2.2rem;
 }
 
+/* Class for dark mode */
+/* 
 .dark {
   background-color: var(--main);
   color: var(--contrast-light);
   transition: 0.4s;
-}
+} */
 
 .header {
   width: 100vw;
-}
-
-.quiz__card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--contrast-light);
-  width: clamp(200px, 300px, 500px);
-  min-height: 200px;
-  padding: 20px 30px 10px 30px;
-  box-shadow: 1px 1px 15px var(--main);
-}
-
-.bookmark {
-  position: absolute;
-  top: -4px;
-  right: 10px;
-  cursor: pointer;
-  width: 25px;
-}
-
-.card__question {
-  min-width: 250px;
-}
-
-.tags {
-  align-self: flex-start;
-  color: var(--contrast-light);
-  list-style-type: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
-  gap: 10px;
-}
-
-.tags:hover {
-  cursor: pointer;
-}
-
-.card__answer {
-  padding: 15px 20px;
-  border: 2px var(--contrast-green) solid;
-  background-color: var(--contrast-light);
-  color: var(--main);
-  transition: 0.2s;
-}
-
-.card__answer:hover {
-  background-color: var(--contrast-red);
-  cursor: pointer;
-  color: var(--contrast-light);
-}
-
-.card__answer,
-.tags > li {
-  border-radius: 5px;
-}
-
-.tags > li {
-  background-color: var(--contrast-red);
-  padding: 5px;
 }
 
 footer {
