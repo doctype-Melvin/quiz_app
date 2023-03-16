@@ -116,34 +116,51 @@ bookmarkIcons.forEach((btn) =>
   })
 );
 
-// Switches from button to quiz answer
-const answerButtons = [...document.querySelectorAll(".card__answer__button")];
+// Select all the buttons
+let buttonsOnScreen = [
+  ...document.querySelectorAll('[data-js="cardAnswerButton"]'),
+];
 
-answerButtons.forEach((button) =>
+// Select all the questions
+let questionsOnScreen = [
+  ...document.querySelectorAll('[data-js="cardAnswer"]'),
+];
+
+// Flip buttons to answers
+buttonsOnScreen.forEach((button) =>
   button.addEventListener("click", (e) => {
     // Store the card's ID
     let answerId = e.target.dataset.id;
-
-    // Select all the buttons
-    let buttonsOnScreen = [
-      ...document.querySelectorAll('[data-js="cardAnswerButton"]'),
-    ];
-
-    // Select all the questions
-    let questionsOnScreen = [
-      ...document.querySelectorAll('[data-js="cardAnswer"]'),
-    ];
 
     // Find the clicked element associated with the button
     let clickedButton = buttonsOnScreen.find(
       (item) => item.dataset.id === answerId
     );
-    clickedButton.classList.add("card__answer__button--hidden");
+    clickedButton.classList.toggle("card__answer__button--hidden");
 
     // Find the clicked element's answer
     let clickedAnswer = questionsOnScreen.find(
       (item) => item.dataset.id === answerId
     );
-    clickedAnswer.classList.add("card__answer--show");
+    clickedAnswer.classList.toggle("card__answer--show");
   })
 );
+
+// Flip answers to buttons
+questionsOnScreen.forEach((answer) => {
+  answer.addEventListener("click", (e) => {
+    // Store the card's ID
+    let questionId = e.target.dataset.id;
+    console.log(answer);
+
+    // Find the clicked answer and toggle class (off)
+    questionsOnScreen
+      .find((item) => item.dataset.id === questionId)
+      .classList.toggle("card__answer--show");
+
+    // Find the cards button and toggle class (on)
+    buttonsOnScreen
+      .find((item) => item.dataset.id === answer.dataset.id)
+      .classList.toggle("card__answer__button--hidden");
+  });
+});
