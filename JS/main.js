@@ -3,16 +3,19 @@ const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
 const _data = [
   {
+    id: 1,
     question: "Where is Waldo?",
     answer: "Hidden",
     tags: ["html", "css", "flexbox"],
   },
   {
+    id: 2,
     question: "What's for lunch?",
     answer: "Steak and eggs",
     tags: ["food", "lunch", "yummy"],
   },
   {
+    id: 3,
     question: "What's the largest animal on earth?",
     answer: "Blue Whale",
     tags: ["biology", "marine", "mammals"],
@@ -21,17 +24,19 @@ const _data = [
 
 // Section of element factories
 // to create individual elements
-const cardMaker = () => {
+const cardMaker = (data) => {
   const card = document.createElement("section");
   card.classList.add("quiz__card");
   card.setAttribute("data-js", "quizCard");
+  card.setAttribute("data-id", `${data.id}`);
   return card;
 };
 
-const bookmarkMaker = () => {
+const bookmarkMaker = (data) => {
   const bookmark = document.createElement("img");
   bookmark.classList.add("bookmark");
   bookmark.setAttribute("data-js", "bookmark");
+  bookmark.setAttribute("data-id", `${data.id}`);
   bookmark.src = "./assets/bookmark_saved.svg";
   return bookmark;
 };
@@ -40,20 +45,23 @@ const questionMaker = (data) => {
   const question = document.createElement("span");
   question.classList.add("card__question");
   question.setAttribute("data-js", "cardQuestion");
+  question.setAttribute("data-id", `${data.id}`);
   question.textContent = data.question;
   return question;
 };
 
-const buttonAnswerContainerMaker = () => {
+const buttonAnswerContainerMaker = (data) => {
   const buttonAndAnswerContainer = document.createElement("div");
-  buttonAndAnswerContainer.classList.add("button__and__answer_container");
+  buttonAndAnswerContainer.classList.add("button__and__answer__container");
+  buttonAndAnswerContainer.setAttribute("data-id", `${data.id}`);
   return buttonAndAnswerContainer;
 };
 
-const buttonMaker = () => {
+const buttonMaker = (data) => {
   const button = document.createElement("button");
   button.classList.add("card__answer__button");
-  // button.setAttribute("data-js", "cardAnswer");
+  button.setAttribute("data-js", "cardAnswerButton");
+  button.setAttribute("data-id", `${data.id}`);
   button.type = "submit";
   button.textContent = "Show Answer";
   return button;
@@ -63,6 +71,7 @@ const answerMaker = (data) => {
   const answer = document.createElement("section");
   answer.classList.add("card__answer");
   answer.setAttribute("data-js", "cardAnswer");
+  answer.setAttribute("data-id", `${data.id}`);
   answer.textContent = data.answer;
   return answer;
 };
@@ -81,11 +90,11 @@ const tagsMaker = (data) => {
 
 // Factory to create question cards
 const cardFactory = (data) => {
-  let card = cardMaker();
-  let bookmark = bookmarkMaker();
+  let card = cardMaker(data);
+  let bookmark = bookmarkMaker(data);
   let question = questionMaker(data);
-  let buttonAndAnswerContainer = buttonAnswerContainerMaker();
-  let button = buttonMaker();
+  let buttonAndAnswerContainer = buttonAnswerContainerMaker(data);
+  let button = buttonMaker(data);
   let answer = answerMaker(data);
   let tagsContainer = tagsMaker(data);
   buttonAndAnswerContainer.append(button, answer);
@@ -102,32 +111,56 @@ const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
 bookmarkIcons.forEach((btn) =>
   btn.addEventListener("click", () => {
+    console.log(btn.dataset.id);
     btn.classList.toggle("bookmark--saved");
   })
 );
 
-// Switches from button to quiz answer
-const answerButtons = [...document.querySelectorAll(".card__answer__button")];
+// Select all the buttons
+let buttonsOnScreen = [
+  ...document.querySelectorAll('[data-js="cardAnswerButton"]'),
+];
 
-answerButtons.forEach((button) =>
+// Select all the questions
+let questionsOnScreen = [
+  ...document.querySelectorAll('[data-js="cardAnswer"]'),
+];
+
+// Flip buttons to answers
+buttonsOnScreen.forEach((button) =>
   button.addEventListener("click", (e) => {
-    console.log(e.target);
-    button.classList.toggle("card__answer__button--hidden");
-    document
-      .querySelector('[data-js="cardAnswer"]')
-      .classList.toggle("card__answer--show");
-    // Show answer on click
-    // button.classList.add("card__answer__button--hidden");
-    // let answer = document.querySelector('[data-js="cardAnswer"]');
-    // answer.classList.add("card__answer--show");
-    // console.log(answer);
+    // Store the card's ID
+    let answerId = e.target.dataset.id;
+
+    // Find the clicked element associated with the button
+    let clickedButton = buttonsOnScreen.find(
+      (item) => item.dataset.id === answerId
+    );
+    clickedButton.classList.toggle("card__answer__button--hidden");
+
+    // Find the clicked element's answer
+    let clickedAnswer = questionsOnScreen.find(
+      (item) => item.dataset.id === answerId
+    );
+    clickedAnswer.classList.toggle("card__answer--show");
   })
 );
 
-// const toggleFunction = (element) => {
-//   element.classList.toggle("dark");
-// };
+// Flip answers to buttons
+questionsOnScreen.forEach((answer) => {
+  answer.addEventListener("click", (e) => {
+    // Store the card's ID
+    let questionId = e.target.dataset.id;
+    console.log(answer);
 
-// const toggleSwitch = document.querySelector('[data-js="toggleMode"]');
-// const body = document.querySelector("body");
-// toggleSwitch.addEventListener("click", () => toggleFunction(body));
+    // Find the clicked answer and toggle class (off)
+    questionsOnScreen
+      .find((item) => item.dataset.id === questionId)
+      .classList.toggle("card__answer--show");
+
+    // Find the cards button and toggle class (on)
+    buttonsOnScreen
+      .find((item) => item.dataset.id === answer.dataset.id)
+      .classList.toggle("card__answer__button--hidden");
+  });
+});
