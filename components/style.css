@@ -12,6 +12,7 @@
 
 :root {
   --main: #464f51;
+  --shadow-dust: #7c7f7f61;
   --dark: #000009;
   --contrast-light: #defff2;
   --contrast-green: #0ff4c6;
@@ -37,7 +38,7 @@ h1 {
   text-align: center;
   color: var(--contrast-red);
   text-shadow: 2px 1px 2px var(--main);
-  font-size: 2.2rem;
+  font-size: 2.5rem;
 }
 
 /* Class for dark mode */
@@ -56,6 +57,7 @@ footer {
   width: 100vw;
   margin-top: 25px;
   z-index: 10;
+  box-shadow: -1px -2px 8px 5px var(--shadow-dust);
 }
 
 .footer__icon--active {
