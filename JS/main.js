@@ -59,6 +59,14 @@ bookmarkIcons.forEach((btn) =>
   })
 );
 
+const answerButtons = [...document.querySelectorAll(".card__answer")];
+console.log(answerButtons);
+answerButtons.forEach((button) =>
+  button.addEventListener("click", () => {
+    console.log("Answer button clicked!");
+  })
+);
+
 // const toggleFunction = (element) => {
 //   element.classList.toggle("dark");
 // };
