@@ -53,7 +53,7 @@ const buttonAnswerContainerMaker = () => {
 const buttonMaker = () => {
   const button = document.createElement("button");
   button.classList.add("card__answer__button");
-  button.setAttribute("data-js", "cardAnswer");
+  // button.setAttribute("data-js", "cardAnswer");
   button.type = "submit";
   button.textContent = "Show Answer";
   return button;
@@ -62,6 +62,7 @@ const buttonMaker = () => {
 const answerMaker = (data) => {
   const answer = document.createElement("section");
   answer.classList.add("card__answer");
+  answer.setAttribute("data-js", "cardAnswer");
   answer.textContent = data.answer;
   return answer;
 };
@@ -107,12 +108,19 @@ bookmarkIcons.forEach((btn) =>
 
 // Switches from button to quiz answer
 const answerButtons = [...document.querySelectorAll(".card__answer__button")];
-console.log(answerButtons);
+
 answerButtons.forEach((button) =>
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (e) => {
+    console.log(e.target);
+    button.classList.toggle("card__answer__button--hidden");
+    document
+      .querySelector('[data-js="cardAnswer"]')
+      .classList.toggle("card__answer--show");
     // Show answer on click
-    button.classList.add("card__answer__button--hidden");
-    console.log("Answer button clicked!");
+    // button.classList.add("card__answer__button--hidden");
+    // let answer = document.querySelector('[data-js="cardAnswer"]');
+    // answer.classList.add("card__answer--show");
+    // console.log(answer);
   })
 );
 
