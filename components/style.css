@@ -2,6 +2,7 @@
 @import "./tooltip.css";
 @import "./grid.css";
 @import "./card.css";
+@import "./answer__button.css";
 
 *,
 *::before,
@@ -54,6 +55,7 @@ h1 {
 footer {
   width: 100vw;
   margin-top: 25px;
+  z-index: 10;
 }
 
 .footer__icon--active {

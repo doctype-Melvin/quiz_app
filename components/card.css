@@ -13,10 +13,10 @@
 
 .bookmark {
   position: absolute;
-  top: -4px;
+  top: -6px;
   right: 10px;
   cursor: pointer;
-  width: 25px;
+  width: 35px;
 }
 
 .card__question {
@@ -37,7 +37,8 @@
   cursor: pointer;
 }
 
-.card__answer {
+.card__answer__button {
+  /* display: none; */
   padding: 15px 20px;
   border: 2px var(--contrast-green) solid;
   background-color: var(--contrast-light);
@@ -45,13 +46,13 @@
   transition: 0.2s;
 }
 
-.card__answer:hover {
+.card__answer__button:hover {
   background-color: var(--contrast-red);
   cursor: pointer;
   color: var(--contrast-light);
 }
 
-.card__answer,
+.card__answer__button,
 .tags > li {
   border-radius: 5px;
 }

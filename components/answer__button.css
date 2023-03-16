@@ -1,0 +1,11 @@
+.card__answer__button--hidden {
+  display: none;
+}
+
+.card__answer {
+  display: none;
+}
+
+.card__answer--show {
+  display: block;
+}
