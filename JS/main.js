@@ -44,6 +44,12 @@ const questionMaker = (data) => {
   return question;
 };
 
+const buttonAnswerContainerMaker = () => {
+  const buttonAndAnswerContainer = document.createElement("div");
+  buttonAndAnswerContainer.classList.add("button__and__answer_container");
+  return buttonAndAnswerContainer;
+};
+
 const buttonMaker = () => {
   const button = document.createElement("button");
   button.classList.add("card__answer__button");
@@ -51,6 +57,13 @@ const buttonMaker = () => {
   button.type = "submit";
   button.textContent = "Show Answer";
   return button;
+};
+
+const answerMaker = (data) => {
+  const answer = document.createElement("section");
+  answer.classList.add("card__answer");
+  answer.textContent = data.answer;
+  return answer;
 };
 
 const tagsMaker = (data) => {
@@ -70,15 +83,20 @@ const cardFactory = (data) => {
   let card = cardMaker();
   let bookmark = bookmarkMaker();
   let question = questionMaker(data);
+  let buttonAndAnswerContainer = buttonAnswerContainerMaker();
   let button = buttonMaker();
+  let answer = answerMaker(data);
   let tagsContainer = tagsMaker(data);
-
-  card.append(bookmark, question, button, tagsContainer);
+  buttonAndAnswerContainer.append(button, answer);
+  card.append(bookmark, question, buttonAndAnswerContainer, tagsContainer);
   cardsGrid.append(card);
 };
 
+// For each goes through data array and
+// calls cardFactory for every question
 _data.forEach((item) => cardFactory(item));
 
+// Mark cards as saved by clicking bookmark
 const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
 bookmarkIcons.forEach((btn) =>
@@ -87,6 +105,7 @@ bookmarkIcons.forEach((btn) =>
   })
 );
 
+// Switches from button to quiz answer
 const answerButtons = [...document.querySelectorAll(".card__answer__button")];
 console.log(answerButtons);
 answerButtons.forEach((button) =>
