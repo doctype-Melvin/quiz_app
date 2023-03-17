@@ -1,13 +1,9 @@
 // Selects the grid container
 const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
+// Static data that in future may be entered 
+// by authorized users through a form element
 const _data = [
-  {
-    id: 1,
-    question: "Where is Waldo?",
-    answer: "Hidden",
-    tags: ["html", "css", "flexbox"],
-  },
   {
     id: 2,
     question: "What's for lunch?",
@@ -19,6 +15,30 @@ const _data = [
     question: "What's the largest animal on earth?",
     answer: "Blue Whale",
     tags: ["biology", "marine", "mammals"],
+  },
+  {
+    id: 4,
+    question: "Who was the first person on the moon?",
+    answer: "Neil Armstrong",
+    tags: ["space", "science", "nasa"],
+  },
+  {
+    id: 1,
+    question: "Where is Waldo?",
+    answer: "Hidden",
+    tags: ["html", "css", "flexbox"],
+  },
+  {
+    id: 5,
+    question: "What percentage of the Earth's surface is covered in water?",
+    answer: "71%",
+    tags: ["earth", "blue planet"],
+  },
+  {
+    id: 6,
+    question: "How many time zones are there in the world?",
+    answer: "24",
+    tags: ["time", "earth", "hours"],
   },
 ];
 
