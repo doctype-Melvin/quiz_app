@@ -20,11 +20,6 @@ body {
   position: relative;
 }
 
-main {
-  position: absolute;
-  top: 150px;
-}
-
 .details__container {
   display: flex;
   flex-direction: column;

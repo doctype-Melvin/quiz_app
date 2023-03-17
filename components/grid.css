@@ -7,7 +7,7 @@
   grid-template-rows: repeat(auto-fit, 200px);
   /* justify-items: center; */
   justify-content: center;
-  width: 100vw;
+  width: 90vw;
   gap: 20px;
 }
 /* 
