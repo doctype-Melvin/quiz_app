@@ -44,6 +44,7 @@
   background-color: var(--contrast-light);
   color: var(--main);
   transition: 0.2s;
+  font-size: 1rem;
 }
 
 .card__answer__button:hover {
