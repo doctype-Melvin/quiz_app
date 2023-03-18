@@ -1,6 +1,20 @@
 // Selects the grid container
 const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
+// Mark cards as saved by clicking bookmark
+const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
+
+// Select all the buttons
+let buttonsOnScreen = [
+  ...document.querySelectorAll('[data-js="cardAnswerButton"]'),
+];
+
+// Select all the questions
+let questionsOnScreen = [
+  ...document.querySelectorAll('[data-js="cardAnswer"]'),
+];
+
+
 // Static data that in future may be entered 
 // by authorized users through a form element
 const _data = [
@@ -126,8 +140,6 @@ const cardFactory = (data) => {
 // calls cardFactory for every question
 _data.forEach((item) => cardFactory(item));
 
-// Mark cards as saved by clicking bookmark
-const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
 bookmarkIcons.forEach((btn) =>
   btn.addEventListener("click", () => {
@@ -136,15 +148,6 @@ bookmarkIcons.forEach((btn) =>
   })
 );
 
-// Select all the buttons
-let buttonsOnScreen = [
-  ...document.querySelectorAll('[data-js="cardAnswerButton"]'),
-];
-
-// Select all the questions
-let questionsOnScreen = [
-  ...document.querySelectorAll('[data-js="cardAnswer"]'),
-];
 
 // Flip buttons to answers
 buttonsOnScreen.forEach((button) =>
