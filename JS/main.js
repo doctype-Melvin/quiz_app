@@ -1,9 +1,6 @@
 // Selects the grid container
 const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
-// Mark cards as saved by clicking bookmark
-const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
-
 // Select all the buttons
 let buttonsOnScreen = [
   ...document.querySelectorAll('[data-js="cardAnswerButton"]'),
@@ -23,36 +20,42 @@ const _data = [
     question: "What's for lunch?",
     answer: "Steak and eggs",
     tags: ["food", "lunch", "yummy"],
+    saved: false,
   },
   {
     id: 3,
     question: "What's the largest animal on earth?",
     answer: "Blue Whale",
     tags: ["biology", "marine", "mammals"],
+    saved: false,
   },
   {
     id: 4,
     question: "Who was the first person on the moon?",
     answer: "Neil Armstrong",
     tags: ["space", "science", "nasa"],
+    saved: false,
   },
   {
     id: 1,
     question: "Where is Waldo?",
     answer: "Hidden",
     tags: ["html", "css", "flexbox"],
+    saved: false,
   },
   {
     id: 5,
     question: "What percentage of the Earth's surface is covered in water?",
     answer: "71%",
     tags: ["earth", "blue planet"],
+    saved: false,
   },
   {
     id: 6,
     question: "How many time zones are there in the world?",
     answer: "24",
     tags: ["time", "earth", "hours"],
+    saved: false,
   },
 ];
 
@@ -136,14 +139,25 @@ const cardFactory = (data) => {
   cardsGrid.append(card);
 };
 
+const writeToLocalStorage = (dataObject) => {
+  if (localStorage.length === 0) {
+    localStorage.setItem("questions", "[]")
+  } else {
+    const questionsArray = JSON.parse(localStorage.getItem("questions"))
+    console.log(Array.isArray(questionsArray))
+  }
+}
+
 // For each goes through data array and
 // calls cardFactory for every question
 _data.forEach((item) => cardFactory(item));
 
+// Mark cards as saved by clicking bookmark
+const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
 bookmarkIcons.forEach((btn) =>
   btn.addEventListener("click", () => {
-    console.log(btn.dataset.id);
+    writeToLocalStorage()
     btn.classList.toggle("bookmark--saved");
   })
 );
