@@ -50,7 +50,7 @@
 .card__answer__button:hover {
   background-color: var(--contrast-red);
   cursor: pointer;
-  color: var(--contrast-light);
+  color: var(--white);
 }
 
 .card__answer__button,

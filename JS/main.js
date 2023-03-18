@@ -25,10 +25,11 @@ const makeNewQuestion = (question, answer, tags) => {
   const newQuestion = questionFactory(question, answer, [tags.split(',')])
 }
 
+/*
 formButton.addEventListener('click', () => {
 return makeNewQuestion(questionInput.value, answerInput.value, tagsInput.value)
 })
-
+*/
 
 // Static data that in future may be entered 
 // by authorized users through a form element
