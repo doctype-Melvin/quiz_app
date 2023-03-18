@@ -16,6 +16,7 @@ const questionFactory = (question, answer, tags) => {
     answer,
     tags,
     id: id += 1,
+    saved: false,
   }
   return quizElement
 }
