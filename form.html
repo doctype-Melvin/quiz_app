@@ -15,7 +15,29 @@
       </section>
     </header>
     <main data-js="main">
-      <form class="question__form"></form>
+      <form class="question__form" data-js="questionForm">
+        <h3 class="form__title">Add your questions below</h3>
+        <fieldset>
+          <label for="question">Question</label>
+          <input
+            type="text"
+            name="question"
+            id="question"
+            data-js="questionInput"
+          />
+          <label for="answer">Answer</label>
+          <input type="text" name="answer" id="answer" data-js="answerInput" />
+          <label for="tags">Tags</label>
+          <textarea
+            name="tags"
+            id="tags"
+            cols="30"
+            rows="1"
+            data-js="tagsInput"
+          ></textarea>
+          <button type="button">Add question</button>
+        </fieldset>
+      </form>
     </main>
     <footer>
       <section class="footer__links">

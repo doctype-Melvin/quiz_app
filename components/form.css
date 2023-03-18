@@ -1,0 +1,8 @@
+.question__form {
+  border: solid 2px hotpink;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
