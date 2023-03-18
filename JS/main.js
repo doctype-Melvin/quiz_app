@@ -1,15 +1,32 @@
 // Selects the grid container
 const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
-// Select all the buttons
-let buttonsOnScreen = [
-  ...document.querySelectorAll('[data-js="cardAnswerButton"]'),
-];
+// Selectors for form input elements
+const questionInput = document.querySelector('[data-js="questionInput"]')
+const answerInput = document.querySelector('[data-js="answerInput"]')
+const tagsInput = document.querySelector('[data-js="tagsInput"]')
+const formButton = document.querySelector('[data-js="formButton"]')
 
-// Select all the questions
-let questionsOnScreen = [
-  ...document.querySelectorAll('[data-js="cardAnswer"]'),
-];
+// ID variable
+let id = 0
+
+const questionFactory = (question, answer, tags) => {
+  const quizElement = {
+    question,
+    answer,
+    tags,
+    id: id += 1,
+  }
+  return quizElement
+}
+
+const makeNewQuestion = (question, answer, tags) => {
+  const newQuestion = questionFactory(question, answer, [tags.split(',')])
+}
+
+formButton.addEventListener('click', () => {
+return makeNewQuestion(questionInput.value, answerInput.value, tagsInput.value)
+})
 
 
 // Static data that in future may be entered 
@@ -186,6 +203,16 @@ bookmarkIcons.forEach((btn) =>
   })
 );
 
+// Select all the buttons
+let buttonsOnScreen = [
+  ...document.querySelectorAll('[data-js="cardAnswerButton"]'),
+];
+
+// Select all the questions
+let questionsOnScreen = [
+  ...document.querySelectorAll('[data-js="cardAnswer"]'),
+];
+
 
 // Flip buttons to answers
 buttonsOnScreen.forEach((button) =>
@@ -212,7 +239,6 @@ questionsOnScreen.forEach((answer) => {
   answer.addEventListener("click", (e) => {
     // Store the card's ID
     let questionId = e.target.dataset.id;
-    console.log(answer);
 
     // Find the clicked answer and toggle class (off)
     questionsOnScreen
