@@ -139,12 +139,31 @@ const cardFactory = (data) => {
   cardsGrid.append(card);
 };
 
-const writeToLocalStorage = (dataObject) => {
+const initializeLocalStorage = () => {
+  localStorage.setItem("questions", `[]`)
+  console.log('created localStorage item')
+}
+
+const addDataToLocalStorage = (data) => {
+  const storageArray = JSON.parse(localStorage.getItem("questions"));
+  const newDataArray = storageArray.slice();
+  newDataArray.push(data)
+  localStorage.setItem("questions", JSON.stringify(newDataArray))
+}
+
+const deleteLocalStorageData = () => {
+  localStorage.removeItem("questions")
+  console.log('wiped localStorage')
+}
+
+// localStorage.clear()
+
+const writeToLocalStorage = () => {
   if (localStorage.length === 0) {
-    localStorage.setItem("questions", "[]")
+    initializeLocalStorage()
   } else {
-    const questionsArray = JSON.parse(localStorage.getItem("questions"))
-    console.log(Array.isArray(questionsArray))
+    //deleteLocalStorageData()
+    addDataToLocalStorage('Test data')
   }
 }
 
@@ -157,7 +176,9 @@ const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
 bookmarkIcons.forEach((btn) =>
   btn.addEventListener("click", () => {
+    //// *****************************************
     writeToLocalStorage()
+    //// *****************************************
     btn.classList.toggle("bookmark--saved");
   })
 );
