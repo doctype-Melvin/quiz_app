@@ -151,8 +151,12 @@ const addDataToLocalStorage = (data) => {
   localStorage.setItem("questions", JSON.stringify(newDataArray))
 }
 
+const readDataFromLocalStorage = () => {
+  return JSON.parse(localStorage.getItem("questions"))
+}
+
 const deleteLocalStorageData = () => {
-  localStorage.removeItem("questions")
+  localStorage.clear()
   console.log('wiped localStorage')
 }
 
@@ -162,8 +166,7 @@ const writeToLocalStorage = () => {
   if (localStorage.length === 0) {
     initializeLocalStorage()
   } else {
-    //deleteLocalStorageData()
-    addDataToLocalStorage('Test data')
+    addDataToLocalStorage()
   }
 }
 
