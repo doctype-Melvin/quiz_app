@@ -35,7 +35,7 @@ localStorage.setItem("questions", JSON.stringify(newDataArray))
 }
 
 formButton.addEventListener('click', () => {
-const newData = questionFactory(questionInput.value, answerInput.value, [tagsInput.value.split(',')])
+const newData = questionFactory(questionInput.value, answerInput.value, tagsInput.value.split(','))
 addDataToLocalStorage(newData)
 console.log(JSON.parse(localStorage.getItem("questions")))
 })

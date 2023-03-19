@@ -3,6 +3,7 @@ const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
 // Static data that in future may be entered 
 // by authorized users through a form element
+/*
 const _data = [
   {
     id: 2,
@@ -47,6 +48,8 @@ const _data = [
     saved: false,
   },
 ];
+
+*/
 
 // Section of element factories
 // to create individual elements
@@ -107,6 +110,7 @@ const tagsMaker = (data) => {
   tagsContainer.classList.add("tags");
   tagsContainer.setAttribute("data-js", "tags");
   data.tags.forEach((element) => {
+    console.log(element)
     const tag = document.createElement("li");
     tag.textContent = `#${element}`;
     tagsContainer.append(tag);
@@ -131,11 +135,6 @@ const cardFactory = (data) => {
 //---------------------------
 //    Local storage management
 //---------------------------
-
-
-
-
-
 const readDataFromLocalStorage = () => {
   return JSON.parse(localStorage.getItem("questions"))
 }
@@ -145,17 +144,9 @@ const deleteLocalStorageData = () => {
   console.log('wiped localStorage')
 }
 
-const writeToLocalStorage = () => {
-  if (localStorage.length === 0) {
-    initializeLocalStorage()
-  } else {
-    addDataToLocalStorage()
-  }
-}
-
 // For each goes through data array and
 // calls cardFactory for every question
-_data.forEach((item) => cardFactory(item));
+JSON.parse(localStorage.getItem("questions")).forEach((item) => cardFactory(item));
 
 // Mark cards as saved by clicking bookmark
 const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
@@ -163,7 +154,7 @@ const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 bookmarkIcons.forEach((btn) =>
   btn.addEventListener("click", () => {
     //// *****************************************
-    writeToLocalStorage()
+    console.log(btn.dataset.id)
     //// *****************************************
     btn.classList.toggle("bookmark--saved");
   })
