@@ -1,36 +1,6 @@
 // Selects the grid container
 const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
-// Selectors for form input elements
-const questionInput = document.querySelector('[data-js="questionInput"]')
-const answerInput = document.querySelector('[data-js="answerInput"]')
-const tagsInput = document.querySelector('[data-js="tagsInput"]')
-const formButton = document.querySelector('[data-js="formButton"]')
-
-// ID variable
-let id = 0
-
-const questionFactory = (question, answer, tags) => {
-  const quizElement = {
-    question,
-    answer,
-    tags,
-    id: id += 1,
-    saved: false,
-  }
-  return quizElement
-}
-
-const makeNewQuestion = (question, answer, tags) => {
-  const newQuestion = questionFactory(question, answer, [tags.split(',')])
-}
-
-/*
-formButton.addEventListener('click', () => {
-return makeNewQuestion(questionInput.value, answerInput.value, tagsInput.value)
-})
-*/
-
 // Static data that in future may be entered 
 // by authorized users through a form element
 const _data = [
@@ -158,17 +128,13 @@ const cardFactory = (data) => {
   cardsGrid.append(card);
 };
 
-const initializeLocalStorage = () => {
-  localStorage.setItem("questions", `[]`)
-  console.log('created localStorage item')
-}
+//---------------------------
+//    Local storage management
+//---------------------------
 
-const addDataToLocalStorage = (data) => {
-  const storageArray = JSON.parse(localStorage.getItem("questions"));
-  const newDataArray = storageArray.slice();
-  newDataArray.push(data)
-  localStorage.setItem("questions", JSON.stringify(newDataArray))
-}
+
+
+
 
 const readDataFromLocalStorage = () => {
   return JSON.parse(localStorage.getItem("questions"))
@@ -178,8 +144,6 @@ const deleteLocalStorageData = () => {
   localStorage.clear()
   console.log('wiped localStorage')
 }
-
-// localStorage.clear()
 
 const writeToLocalStorage = () => {
   if (localStorage.length === 0) {
