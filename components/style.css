@@ -5,6 +5,7 @@
 @import "./answer__button.css";
 @import "./footer.css";
 @import "./form.css";
+@import "./modal.css";
 
 *,
 *::before,
@@ -20,6 +21,8 @@
   --contrast-green: #0ff4c6;
   --contrast-red: #d68fd6;
   --white: #fff;
+  --footer-height: 50px;
+  --header-height: 110px;
 }
 
 html,
@@ -33,13 +36,21 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
 }
 
-[data-js="main"] {
-  margin-left: auto;
-  margin-right: auto;
+/* [data-js="main"]  */
+main {
+  margin-bottom: calc(var(--footer-height) + 2rem);
+  margin-top: calc(var(--footer-height) / 2);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: var(--contrast-light);
+  z-index: 1;
+  max-height: var(--header-height);
 }
 
 h1 {

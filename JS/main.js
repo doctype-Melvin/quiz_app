@@ -1,55 +1,15 @@
 // Selects the grid container
 const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
-// Static data that in future may be entered 
-// by authorized users through a form element
-/*
-const _data = [
-  {
-    id: 2,
-    question: "What's for lunch?",
-    answer: "Steak and eggs",
-    tags: ["food", "lunch", "yummy"],
-    saved: false,
-  },
-  {
-    id: 3,
-    question: "What's the largest animal on earth?",
-    answer: "Blue Whale",
-    tags: ["biology", "marine", "mammals"],
-    saved: false,
-  },
-  {
-    id: 4,
-    question: "Who was the first person on the moon?",
-    answer: "Neil Armstrong",
-    tags: ["space", "science", "nasa"],
-    saved: false,
-  },
-  {
-    id: 1,
-    question: "Where is Waldo?",
-    answer: "Hidden",
-    tags: ["html", "css", "flexbox"],
-    saved: false,
-  },
-  {
-    id: 5,
-    question: "What percentage of the Earth's surface is covered in water?",
-    answer: "71%",
-    tags: ["earth", "blue planet"],
-    saved: false,
-  },
-  {
-    id: 6,
-    question: "How many time zones are there in the world?",
-    answer: "24",
-    tags: ["time", "earth", "hours"],
-    saved: false,
-  },
-];
-
-*/
+const noDataPresent = () => {
+  const linkToForm = document.createElement('a');
+  linkToForm.classList.add('link-to-form');
+  linkToForm.setAttribute('data-js', 'linkToForm');
+  linkToForm.href = './form.html'
+  linkToForm.textContent = `Click here to add questions`
+  
+  cardsGrid.append(linkToForm)
+}
 
 // Section of element factories
 // to create individual elements
@@ -110,7 +70,6 @@ const tagsMaker = (data) => {
   tagsContainer.classList.add("tags");
   tagsContainer.setAttribute("data-js", "tags");
   data.tags.forEach((element) => {
-    console.log(element)
     const tag = document.createElement("li");
     tag.textContent = `#${element}`;
     tagsContainer.append(tag);
@@ -132,6 +91,14 @@ const cardFactory = (data) => {
   cardsGrid.append(card);
 };
 
+
+// For each goes through data array and
+// calls cardFactory for every question
+(JSON.parse(localStorage.getItem("questions")) === null ||
+JSON.parse(localStorage.getItem("questions")).length === 0 ) ?
+noDataPresent() :
+JSON.parse(localStorage.getItem("questions")).forEach((item) => cardFactory(item));
+
 //---------------------------
 //    Local storage management
 //---------------------------
@@ -143,10 +110,6 @@ const deleteLocalStorageData = () => {
   localStorage.clear()
   console.log('wiped localStorage')
 }
-
-// For each goes through data array and
-// calls cardFactory for every question
-JSON.parse(localStorage.getItem("questions")).forEach((item) => cardFactory(item));
 
 // Mark cards as saved by clicking bookmark
 const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
@@ -208,3 +171,9 @@ questionsOnScreen.forEach((answer) => {
       .classList.toggle("card__answer__button--hidden");
   });
 });
+
+const deleteAllQuestionsButton = document.querySelector('[data-js="deleteAllQuestions"]') 
+deleteAllQuestionsButton.addEventListener('click', () => {
+  console.log('Clicked')
+  localStorage.clear()
+}) 

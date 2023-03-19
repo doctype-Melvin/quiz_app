@@ -5,9 +5,10 @@
   justify-content: space-around;
   align-items: center;
   background-color: var(--contrast-light);
-  width: clamp(200px, 300px, 500px);
+  width: max-content;
   min-height: 200px;
-  padding: 20px 30px 10px 30px;
+  max-width: 300px;
+  padding: 20px 10px 10px 10px;
   box-shadow: 1px 1px 15px var(--shadow-dust);
 }
 
@@ -20,7 +21,9 @@
 }
 
 .card__question {
-  min-width: 250px;
+  max-width: 250px;
+  text-align: justify;
+  margin-top: 10px;
 }
 
 .tags {
@@ -60,5 +63,6 @@
 
 .tags > li {
   background-color: var(--contrast-red);
-  padding: 5px;
+  padding: 3px;
+  font-size: 0.9rem;
 }
