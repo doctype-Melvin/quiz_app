@@ -7,53 +7,16 @@
     <link rel="shortcut icon" href="./app_logo.svg" type="image/x-icon" />
     <title>Bookmarks</title>
     <link rel="stylesheet" href="./components/style.css" />
-    <script defer src="./JS/main.js"></script>
+    <script defer src="./JS/saved.js"></script>
   </head>
   <body>
     <header class="header">
       <section class="title__Ct">
-        <h1>Quiz App</h1>
+        <h1>Quiz Me Baby One More Time</h1>
       </section>
     </header>
     <main data-js="main">
-      <section class="favorites__grid" data-js="favorites__grid">
-        <!-- Question box 1 -->
-        <section class="quiz__card">
-          <img
-            class="bookmark bookmark--saved"
-            src="./assets/bookmark_saved.svg"
-            alt="not-bookmarked"
-            width="25px"
-          />
-          <span class="card__question">
-            What property flips the axes in flexbox?
-          </span>
-          <button type="button" class="card__answer">Show Answer</button>
-          <ul class="tags">
-            <li>#html</li>
-            <li>#flexbox</li>
-            <li>#css</li>
-          </ul>
-        </section>
-        <!-- Question box 2 -->
-        <section class="quiz__card">
-          <img
-            class="bookmark bookmark--saved"
-            src="./assets/bookmark_saved.svg"
-            alt="not-bookmarked"
-            width="25px"
-          />
-          <span class="card__question">
-            What is the answer to this tricky question?
-          </span>
-          <button type="button" class="card__answer">Show Answer</button>
-          <ul class="tags">
-            <li>#html</li>
-            <li>#flexbox</li>
-            <li>#css</li>
-          </ul>
-        </section>
-      </section>
+      <section class="favorites__grid" data-js="cardsGrid"></section>
     </main>
     <footer>
       <section class="footer__links">

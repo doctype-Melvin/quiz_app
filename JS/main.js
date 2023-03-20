@@ -102,24 +102,30 @@ JSON.parse(localStorage.getItem("questions")).forEach((item) => cardFactory(item
 //---------------------------
 //    Local storage management
 //---------------------------
-const readDataFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem("questions"))
-}
-
 const deleteLocalStorageData = () => {
   localStorage.clear()
   console.log('wiped localStorage')
 }
 
+const updateSavedCards = (data) => {
+  const previousArrayState = JSON.parse(localStorage.getItem("questions"))
+  const newData = data
+  newData.saved === false ? newData.saved = true : newData.saved = false
+  const oldState = previousArrayState.find(item => item.id === newData.id)
+  
+  console.log(oldState)
+}
+
 // Mark cards as saved by clicking bookmark
 const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
-bookmarkIcons.forEach((btn) =>
-  btn.addEventListener("click", () => {
-    //// *****************************************
-    console.log(btn.dataset.id)
-    //// *****************************************
-    btn.classList.toggle("bookmark--saved");
+bookmarkIcons.forEach((button) =>
+  button.addEventListener("click", () => {
+    const questionsArray = JSON.parse(localStorage.getItem("questions"))
+    const markedCard = questionsArray.find(question => question.id === +button.dataset.id)
+    updateSavedCards(markedCard)
+    
+    button.classList.toggle("bookmark--saved");
   })
 );
 
@@ -172,8 +178,3 @@ questionsOnScreen.forEach((answer) => {
   });
 });
 
-const deleteAllQuestionsButton = document.querySelector('[data-js="deleteAllQuestions"]') 
-deleteAllQuestionsButton.addEventListener('click', () => {
-  console.log('Clicked')
-  localStorage.clear()
-}) 

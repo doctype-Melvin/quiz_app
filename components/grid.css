@@ -1,5 +1,4 @@
-.cards__grid,
-.favorites__grid {
+[data-js="cardsGrid"] {
   display: grid;
   gap: 20px;
   justify-content: center;
@@ -12,16 +11,14 @@
 }
 
 @media only screen and (min-width: 670px) {
-  .cards__grid,
-  .favorites__grid {
+  [data-js="cardsGrid"] {
     grid-template-columns: repeat(auto-fit, 300px);
     grid-template-rows: repeat(auto-fit, 200px);
     width: 95vw;
   }
 }
 @media (min-width: 900px) {
-  .cards__grid,
-  .favorites__grid {
+  [data-js="cardsGrid"] {
     margin-left: calc(var(--footer-height) + 30px);
   }
 
