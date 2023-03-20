@@ -112,7 +112,8 @@ const updateSavedCards = (data) => {
   const newData = data
   newData.saved === false ? newData.saved = true : newData.saved = false
   const oldState = previousArrayState.find(item => item.id === newData.id)
-  
+  // Find the index of the question to replace
+  // update the localstorage array
   console.log(oldState)
 }
 
