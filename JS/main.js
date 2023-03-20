@@ -107,14 +107,16 @@ const deleteLocalStorageData = () => {
   console.log('wiped localStorage')
 }
 
+// Receives the selected object from questions array
+// Modifies the 'saved' property of object
+// Updates localStorage 
 const updateSavedCards = (data) => {
   const previousArrayState = JSON.parse(localStorage.getItem("questions"))
   const newData = data
   newData.saved === false ? newData.saved = true : newData.saved = false
-  const oldState = previousArrayState.find(item => item.id === newData.id)
-  // Find the index of the question to replace
-  // update the localstorage array
-  console.log(oldState)
+  const modifiedObject = previousArrayState.find(item => item.id === newData.id)
+  previousArrayState.splice(modifiedObject.id, 1, newData)
+  localStorage.setItem("questions",  JSON.stringify(previousArrayState))
 }
 
 // Mark cards as saved by clicking bookmark
@@ -122,7 +124,7 @@ const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
 bookmarkIcons.forEach((button) =>
   button.addEventListener("click", () => {
-    const questionsArray = JSON.parse(localStorage.getItem("questions"))
+    // const questionsArray = JSON.parse(localStorage.getItem("questions"))
     const markedCard = questionsArray.find(question => question.id === +button.dataset.id)
     updateSavedCards(markedCard)
     
