@@ -1,0 +1,39 @@
+.question__form,
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: var(--contrast-red);
+  outline: none;
+  box-shadow: 1px 2px 15px 3px var(--shadow-dust);
+}
+
+.question__form {
+  align-items: center;
+  line-height: 1.5rem;
+}
+
+[data-js="questionInput"],
+[data-js="answerInput"],
+[data-js="tagsInput"] {
+  margin-bottom: 15px;
+}
+
+[data-js="formButton"] {
+  border: var(--contrast-green) 2px solid;
+  background: var(--contrast-light);
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+}
+
+[data-js="formButton"]:hover {
+  background-color: var(--contrast-red);
+  transition: 0.2s;
+  cursor: pointer;
+  color: var(--white);
+}

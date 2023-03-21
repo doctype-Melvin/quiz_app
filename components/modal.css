@@ -1,0 +1,20 @@
+[data-js="linkToForm"] {
+  height: fit-content;
+  background-color: var(--contrast-light);
+  color: var(--dark);
+  text-decoration: none;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  text-align: center;
+  box-shadow: 1px 1px 12px var(--shadow-dust);
+  border-radius: 3px;
+}
+
+[data-js="linkToForm"]:hover {
+  background-color: var(--contrast-red);
+  transition: 0.3s;
+}
+
+[data-js="main"] {
+  width: 100vw;
+}

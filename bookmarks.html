@@ -4,55 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./app_logo.svg" type="image/x-icon" />
     <title>Bookmarks</title>
     <link rel="stylesheet" href="./components/style.css" />
-    <script defer src="./JS/main.js"></script>
+    <script defer src="./JS/saved.js"></script>
   </head>
   <body>
     <header class="header">
       <section class="title__Ct">
-        <h1>Quiz App</h1>
+        <h1>Quiztopher Columbus</h1>
       </section>
     </header>
     <main data-js="main">
-      <section class="favorites__grid" data-js="favorites__grid">
-        <!-- Question box 1 -->
-        <section class="quiz__card">
-          <img
-            class="bookmark bookmark--saved"
-            src="./assets/bookmark_saved.svg"
-            alt="not-bookmarked"
-            width="25px"
-          />
-          <span class="card__question">
-            What property flips the axes in flexbox?
-          </span>
-          <button type="button" class="card__answer">Show Answer</button>
-          <ul class="tags">
-            <li>#html</li>
-            <li>#flexbox</li>
-            <li>#css</li>
-          </ul>
-        </section>
-        <!-- Question box 2 -->
-        <section class="quiz__card">
-          <img
-            class="bookmark bookmark--saved"
-            src="./assets/bookmark_saved.svg"
-            alt="not-bookmarked"
-            width="25px"
-          />
-          <span class="card__question">
-            What is the answer to this tricky question?
-          </span>
-          <button type="button" class="card__answer">Show Answer</button>
-          <ul class="tags">
-            <li>#html</li>
-            <li>#flexbox</li>
-            <li>#css</li>
-          </ul>
-        </section>
-      </section>
+      <section class="favorites__grid" data-js="cardsGrid"></section>
     </main>
     <footer>
       <section class="footer__links">
@@ -62,6 +26,15 @@
             alt="home-button"
             class="footer__icon"
           />
+          <span class="nav__caption">Home</span>
+        </a>
+        <a href="./form.html" class="footer__link">
+          <img
+            src="./assets/add_new.png"
+            alt="add-new-question-button"
+            class="footer__icon"
+          />
+          <span class="nav__caption">Add</span>
         </a>
         <a href="./bookmarks.html" class="footer__link">
           <img
@@ -69,6 +42,7 @@
             alt="go-to-bookmarks"
             class="footer__icon footer__icon--active"
           />
+          <span class="nav__caption">Saved</span>
         </a>
         <a href="./profile.html" class="footer__link">
           <img
@@ -76,6 +50,7 @@
             alt="go-to-user-profile"
             class="footer__icon"
           />
+          <span class="nav__caption">Profile</span>
         </a>
       </section>
     </footer>

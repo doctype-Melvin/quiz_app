@@ -20,13 +20,18 @@ body {
   position: relative;
 }
 
+[data-js="mainProfile"] {
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .details__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
-  width: clamp(250px, 60vw, 500px);
-  gap: 30px;
+  width: 90vw;
 }
 
 .bookmark--saved {
@@ -37,7 +42,8 @@ body {
 .details {
   align-items: center;
   justify-content: space-evenly;
-  min-width: 310px;
+  max-width: fit-content;
+  margin-bottom: 15px;
 }
 
 .about {
@@ -57,7 +63,7 @@ body {
 }
 
 .details > img {
-  width: clamp(50px, 20%, 90px);
+  width: 3em;
   padding: 10px;
   border-radius: 50px;
   background-color: var(--contrast-green);
@@ -66,6 +72,7 @@ body {
 .username {
   font-weight: 600;
   font-size: 1.2rem;
+  margin-left: 10px;
 }
 
 .counters {
@@ -157,4 +164,31 @@ input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+/* --------------- */
+[data-js="deleteAllQuestions"] {
+  margin-top: 20px;
+  background-color: crimson;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid var(--white);
+}
+
+[data-js="deleteAllQuestions"]:hover {
+  cursor: pointer;
+  background-color: var(--white);
+  transition: 0.2s;
+  border: 2px solid crimson;
+}
+
+@media (min-width: 900px) {
+  [data-js="mainProfile"] {
+    margin-top: calc(var(--header-height) + 25px);
+  }
+
+  .counters {
+    margin-bottom: 20px;
+  }
 }

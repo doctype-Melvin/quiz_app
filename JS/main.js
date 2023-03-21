@@ -1,46 +1,15 @@
 // Selects the grid container
 const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
-// Static data that in future may be entered 
-// by authorized users through a form element
-const _data = [
-  {
-    id: 2,
-    question: "What's for lunch?",
-    answer: "Steak and eggs",
-    tags: ["food", "lunch", "yummy"],
-  },
-  {
-    id: 3,
-    question: "What's the largest animal on earth?",
-    answer: "Blue Whale",
-    tags: ["biology", "marine", "mammals"],
-  },
-  {
-    id: 4,
-    question: "Who was the first person on the moon?",
-    answer: "Neil Armstrong",
-    tags: ["space", "science", "nasa"],
-  },
-  {
-    id: 1,
-    question: "Where is Waldo?",
-    answer: "Hidden",
-    tags: ["html", "css", "flexbox"],
-  },
-  {
-    id: 5,
-    question: "What percentage of the Earth's surface is covered in water?",
-    answer: "71%",
-    tags: ["earth", "blue planet"],
-  },
-  {
-    id: 6,
-    question: "How many time zones are there in the world?",
-    answer: "24",
-    tags: ["time", "earth", "hours"],
-  },
-];
+const noDataPresent = () => {
+  const linkToForm = document.createElement('a');
+  linkToForm.classList.add('link-to-form');
+  linkToForm.setAttribute('data-js', 'linkToForm');
+  linkToForm.href = './form.html'
+  linkToForm.textContent = `Click here to add questions`
+  
+  cardsGrid.append(linkToForm)
+}
 
 // Section of element factories
 // to create individual elements
@@ -122,17 +91,44 @@ const cardFactory = (data) => {
   cardsGrid.append(card);
 };
 
+
 // For each goes through data array and
 // calls cardFactory for every question
-_data.forEach((item) => cardFactory(item));
+(JSON.parse(localStorage.getItem("questions")) === null ||
+JSON.parse(localStorage.getItem("questions")).length === 0 ) ?
+noDataPresent() :
+JSON.parse(localStorage.getItem("questions")).forEach((item) => cardFactory(item));
+
+//---------------------------
+//    Local storage management
+//---------------------------
+const deleteLocalStorageData = () => {
+  localStorage.clear()
+  console.log('wiped localStorage')
+}
+
+// Receives the selected object from questions array
+// Modifies the 'saved' property of object
+// Updates localStorage 
+const updateSavedCards = (data) => {
+  const previousArrayState = JSON.parse(localStorage.getItem("questions"))
+  const newData = data
+  newData.saved === false ? newData.saved = true : newData.saved = false
+  const modifiedObject = previousArrayState.find(item => item.id === newData.id)
+  previousArrayState.splice(modifiedObject.id, 1, newData)
+  localStorage.setItem("questions",  JSON.stringify(previousArrayState))
+}
 
 // Mark cards as saved by clicking bookmark
 const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
-bookmarkIcons.forEach((btn) =>
-  btn.addEventListener("click", () => {
-    console.log(btn.dataset.id);
-    btn.classList.toggle("bookmark--saved");
+bookmarkIcons.forEach((button) =>
+  button.addEventListener("click", () => {
+    const questionsArray = JSON.parse(localStorage.getItem("questions"))
+    const markedCard = questionsArray.find(question => question.id === +button.dataset.id)
+    updateSavedCards(markedCard)
+    
+    button.classList.toggle("bookmark--saved");
   })
 );
 
@@ -145,6 +141,7 @@ let buttonsOnScreen = [
 let questionsOnScreen = [
   ...document.querySelectorAll('[data-js="cardAnswer"]'),
 ];
+
 
 // Flip buttons to answers
 buttonsOnScreen.forEach((button) =>
@@ -171,7 +168,6 @@ questionsOnScreen.forEach((answer) => {
   answer.addEventListener("click", (e) => {
     // Store the card's ID
     let questionId = e.target.dataset.id;
-    console.log(answer);
 
     // Find the clicked answer and toggle class (off)
     questionsOnScreen
@@ -184,3 +180,4 @@ questionsOnScreen.forEach((answer) => {
       .classList.toggle("card__answer__button--hidden");
   });
 });
+

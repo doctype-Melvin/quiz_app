@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="shortcut icon" href="./app_logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./components/style.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./app_logo.svg" type="image/x-icon" />
+    <script defer src="./JS/form.js"></script>
     <title>Quiz App</title>
-    <link rel="stylesheet" href="./components/style.css" />
-    <script defer src="./JS/main.js"></script>
   </head>
   <body>
     <header class="header">
       <section class="title__Ct">
-        <h1 data-js="app-name">Quiz Me Baby One More Time</h1>
+        <h1>Quizzo</h1>
       </section>
     </header>
     <main data-js="main">
-      <section class="cards__grid" data-js="cardsGrid"></section>
+      <form class="question__form" data-js="questionForm">
+        <h3 class="form__title" id="form-title">Add your questions below</h3>
+        <fieldset aria-labelledby="form-title">
+          <label for="question">Question</label>
+          <input
+            type="text"
+            name="question"
+            id="question"
+            data-js="questionInput"
+          />
+          <label for="answer">Answer</label>
+          <input type="text" name="answer" id="answer" data-js="answerInput" />
+          <label for="tags">Tags</label>
+          <textarea
+            name="tags"
+            id="tags"
+            cols="30"
+            rows="1"
+            data-js="tagsInput"
+          ></textarea>
+          <button type="button" data-js="formButton">Add question</button>
+        </fieldset>
+      </form>
     </main>
     <footer>
       <section class="footer__links">
@@ -24,7 +46,7 @@
           <img
             src="./assets/icons8-startseite-96.png"
             alt="home-button"
-            class="footer__icon footer__icon--active"
+            class="footer__icon"
           />
           <span class="nav__caption">Home</span>
         </a>
@@ -32,11 +54,10 @@
           <img
             src="./assets/add_new.png"
             alt="add-new-question-button"
-            class="footer__icon"
+            class="footer__icon footer__icon--active"
           />
           <span class="nav__caption">Add</span>
         </a>
-
         <a href="./bookmarks.html" class="footer__link">
           <img
             src="./assets/bookmark.svg"
