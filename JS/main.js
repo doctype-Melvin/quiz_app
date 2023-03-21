@@ -124,7 +124,7 @@ const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
 bookmarkIcons.forEach((button) =>
   button.addEventListener("click", () => {
-    // const questionsArray = JSON.parse(localStorage.getItem("questions"))
+    const questionsArray = JSON.parse(localStorage.getItem("questions"))
     const markedCard = questionsArray.find(question => question.id === +button.dataset.id)
     updateSavedCards(markedCard)
     

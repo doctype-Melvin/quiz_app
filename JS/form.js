@@ -1,5 +1,3 @@
-console.log('Here you can create new questions')
-// localStorage.clear()
 
 // Selectors for form input elements
 const questionInput = document.querySelector('[data-js="questionInput"]')
