@@ -20,6 +20,11 @@
   width: 35px;
 }
 
+.bookmark--saved {
+  filter: invert(81%) sepia(91%) saturate(554%) hue-rotate(234deg)
+    brightness(88%) contrast(90%);
+}
+
 .card__question {
   max-width: 250px;
   text-align: justify;
