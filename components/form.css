@@ -5,11 +5,16 @@ fieldset {
 }
 
 fieldset {
-  border-radius: 5px;
   border-style: solid;
   border-color: var(--contrast-red);
   outline: none;
   box-shadow: 1px 2px 15px 3px var(--shadow-dust);
+}
+
+fieldset,
+[data-js="formButton"],
+[data-js="modalMessage"] {
+  border-radius: 5px;
 }
 
 .question__form {
@@ -36,4 +41,12 @@ fieldset {
   transition: 0.2s;
   cursor: pointer;
   color: var(--white);
+}
+
+[data-js="modalMessage"] {
+  background-color: var(--white);
+  width: fit-content;
+  margin: 0 auto;
+  border: 2px solid var(--contrast-red);
+  padding: 5px 10px;
 }
