@@ -11,11 +11,22 @@ fieldset {
   box-shadow: 1px 2px 15px 3px var(--shadow-dust);
 }
 
+input,
+textarea {
+  border: solid 2px var(--contrast-green);
+  font-size: 1rem;
+  padding: 5px;
+  letter-spacing: 2px;
+}
+
 textarea {
   resize: none;
+  font-family: inherit;
 }
 
 fieldset,
+input,
+textarea,
 [data-js="formButton"],
 [data-js="modalMessage"] {
   border-radius: 5px;
