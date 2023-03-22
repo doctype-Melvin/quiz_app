@@ -11,6 +11,10 @@ fieldset {
   box-shadow: 1px 2px 15px 3px var(--shadow-dust);
 }
 
+textarea {
+  resize: none;
+}
+
 fieldset,
 [data-js="formButton"],
 [data-js="modalMessage"] {
