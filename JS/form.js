@@ -5,6 +5,24 @@ const answerInput = document.querySelector('[data-js="answerInput"]')
 const tagsInput = document.querySelector('[data-js="tagsInput"]')
 const formButton = document.querySelector('[data-js="formButton"]')
 
+const successMessage = document.querySelector('[data-js="modalMessage"]')
+
+const hideSuccessMessage = () => {
+  successMessage.setAttribute("hidden", true)
+}
+
+hideSuccessMessage()
+
+const showSuccessMessage = () => {
+  successMessage.removeAttribute("hidden")
+}
+
+const clearInputFields = () => {
+  questionInput.value = '';
+  answerInput.value = '';
+  tagsInput.value = '';
+}
+
 const initializeLocalStorage = () => {
     if (localStorage.length === 0) {
       localStorage.setItem("questions", `[]`)
@@ -35,5 +53,10 @@ localStorage.setItem("questions", JSON.stringify(newDataArray))
 formButton.addEventListener('click', () => {
 const newData = questionFactory(questionInput.value, answerInput.value, tagsInput.value.split(','))
 addDataToLocalStorage(newData)
+clearInputFields()
+showSuccessMessage()
+setTimeout(() => {
+  hideSuccessMessage()
+}, 3000)
 console.log(JSON.parse(localStorage.getItem("questions")))
 })

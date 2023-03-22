@@ -23,9 +23,10 @@ const cardMaker = (data) => {
 
 const bookmarkMaker = (data) => {
   const bookmark = document.createElement("img");
-  bookmark.classList.add("bookmark");
   bookmark.setAttribute("data-js", "bookmark");
   bookmark.setAttribute("data-id", `${data.id}`);
+  data.saved ? bookmark.classList.add("bookmark" ,"bookmark--saved") 
+  : bookmark.classList.add("bookmark");
   bookmark.src = "./assets/bookmark_saved.svg";
   return bookmark;
 };
@@ -78,7 +79,7 @@ const tagsMaker = (data) => {
 };
 
 // Factory to create question cards
-const cardFactory = (data) => {
+export const cardFactory = (data) => {
   let card = cardMaker(data);
   let bookmark = bookmarkMaker(data);
   let question = questionMaker(data);
@@ -86,6 +87,7 @@ const cardFactory = (data) => {
   let button = buttonMaker(data);
   let answer = answerMaker(data);
   let tagsContainer = tagsMaker(data);
+  
   buttonAndAnswerContainer.append(button, answer);
   card.append(bookmark, question, buttonAndAnswerContainer, tagsContainer);
   cardsGrid.append(card);

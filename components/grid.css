@@ -1,16 +1,14 @@
 [data-js="cardsGrid"] {
   display: grid;
   gap: 20px;
-  justify-content: center;
-  width: 100vw;
-  /* grid-template-columns: repeat(auto-fit, 300px);
-  grid-template-rows: repeat(auto-fit, 200px);
   justify-items: center;
   width: 90vw;
-  gap: 20px; */
+  height: 100vh;
+  margin: 0 auto;
+  grid-template-rows: repeat(auto-fit, 200px);
 }
 
-@media only screen and (min-width: 670px) {
+@media (min-width: 670px) {
   [data-js="cardsGrid"] {
     grid-template-columns: repeat(auto-fit, 300px);
     grid-template-rows: repeat(auto-fit, 200px);
