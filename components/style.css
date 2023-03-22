@@ -50,14 +50,15 @@ header {
   top: 0;
   background-color: var(--contrast-light);
   z-index: 1;
-  max-height: var(--header-height);
+  max-height: max-content;
+  /* var(--header-height); */
 }
 
 h1 {
   text-align: center;
   color: var(--contrast-red);
   text-shadow: 2px 1px 2px var(--main);
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 /* Class for dark mode */
