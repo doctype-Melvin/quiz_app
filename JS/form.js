@@ -18,9 +18,7 @@ const showSuccessMessage = () => {
 };
 
 const clearInputFields = () => {
-  questionInput.value = "";
-  answerInput.value = "";
-  tagsInput.value = "";
+  formElement.reset();
 };
 
 const initializeLocalStorage = () => {
