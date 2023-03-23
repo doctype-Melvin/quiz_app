@@ -106,7 +106,7 @@ JSON.parse(localStorage.getItem("questions")).length === 0
 // Receives the selected object from questions array
 // Modifies the 'saved' property of object
 // Updates localStorage
-const updateSavedCards = (data) => {
+export const updateSavedCards = (data) => {
   const previousArrayState = JSON.parse(localStorage.getItem("questions"));
   const newData = data;
   newData.saved === false ? (newData.saved = true) : (newData.saved = false);

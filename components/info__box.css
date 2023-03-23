@@ -11,8 +11,7 @@
   border-radius: 3px;
 }
 
-[data-js="linkToForm"]:hover,
-[data-js="messageCard"]:hover {
+[data-js="linkToForm"]:hover {
   background-color: var(--contrast-red);
   transition: 0.3s;
 }
