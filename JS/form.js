@@ -58,6 +58,6 @@ formElement.addEventListener("submit", (event) => {
   showSuccessMessage();
   setTimeout(() => {
     hideSuccessMessage();
-  }, 3000);
+  }, 2000);
   console.log(JSON.parse(localStorage.getItem("questions")));
 });

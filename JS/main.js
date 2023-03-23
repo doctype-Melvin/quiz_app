@@ -2,14 +2,14 @@
 const cardsGrid = document.querySelector('[data-js="cardsGrid"]');
 
 const noDataPresent = () => {
-  const linkToForm = document.createElement('a');
-  linkToForm.classList.add('link-to-form');
-  linkToForm.setAttribute('data-js', 'linkToForm');
-  linkToForm.href = './form.html'
-  linkToForm.textContent = `Click here to add questions`
-  
-  cardsGrid.append(linkToForm)
-}
+  const linkToForm = document.createElement("a");
+  linkToForm.classList.add("link-to-form");
+  linkToForm.setAttribute("data-js", "linkToForm");
+  linkToForm.href = "./form.html";
+  linkToForm.textContent = `Click here to add questions`;
+
+  cardsGrid.append(linkToForm);
+};
 
 // Section of element factories
 // to create individual elements
@@ -25,8 +25,9 @@ const bookmarkMaker = (data) => {
   const bookmark = document.createElement("img");
   bookmark.setAttribute("data-js", "bookmark");
   bookmark.setAttribute("data-id", `${data.id}`);
-  data.saved ? bookmark.classList.add("bookmark" ,"bookmark--saved") 
-  : bookmark.classList.add("bookmark");
+  data.saved
+    ? bookmark.classList.add("bookmark", "bookmark--saved")
+    : bookmark.classList.add("bookmark");
   bookmark.src = "./assets/bookmark_saved.svg";
   return bookmark;
 };
@@ -87,49 +88,46 @@ export const cardFactory = (data) => {
   let button = buttonMaker(data);
   let answer = answerMaker(data);
   let tagsContainer = tagsMaker(data);
-  
+
   buttonAndAnswerContainer.append(button, answer);
   card.append(bookmark, question, buttonAndAnswerContainer, tagsContainer);
   cardsGrid.append(card);
 };
 
-
 // For each goes through data array and
 // calls cardFactory for every question
-(JSON.parse(localStorage.getItem("questions")) === null ||
-JSON.parse(localStorage.getItem("questions")).length === 0 ) ?
-noDataPresent() :
-JSON.parse(localStorage.getItem("questions")).forEach((item) => cardFactory(item));
-
-//---------------------------
-//    Local storage management
-//---------------------------
-const deleteLocalStorageData = () => {
-  localStorage.clear()
-  console.log('wiped localStorage')
-}
+JSON.parse(localStorage.getItem("questions")) === null ||
+JSON.parse(localStorage.getItem("questions")).length === 0
+  ? noDataPresent()
+  : JSON.parse(localStorage.getItem("questions")).forEach((item) =>
+      cardFactory(item)
+    );
 
 // Receives the selected object from questions array
 // Modifies the 'saved' property of object
-// Updates localStorage 
+// Updates localStorage
 const updateSavedCards = (data) => {
-  const previousArrayState = JSON.parse(localStorage.getItem("questions"))
-  const newData = data
-  newData.saved === false ? newData.saved = true : newData.saved = false
-  const modifiedObject = previousArrayState.find(item => item.id === newData.id)
-  previousArrayState.splice(modifiedObject.id, 1, newData)
-  localStorage.setItem("questions",  JSON.stringify(previousArrayState))
-}
+  const previousArrayState = JSON.parse(localStorage.getItem("questions"));
+  const newData = data;
+  newData.saved === false ? (newData.saved = true) : (newData.saved = false);
+  const modifiedObject = previousArrayState.find(
+    (item) => item.id === newData.id
+  );
+  previousArrayState.splice(modifiedObject.id, 1, newData);
+  localStorage.setItem("questions", JSON.stringify(previousArrayState));
+};
 
 // Mark cards as saved by clicking bookmark
 const bookmarkIcons = [...document.querySelectorAll('[data-js="bookmark"]')];
 
 bookmarkIcons.forEach((button) =>
   button.addEventListener("click", () => {
-    const questionsArray = JSON.parse(localStorage.getItem("questions"))
-    const markedCard = questionsArray.find(question => question.id === +button.dataset.id)
-    updateSavedCards(markedCard)
-    
+    const questionsArray = JSON.parse(localStorage.getItem("questions"));
+    const markedCard = questionsArray.find(
+      (question) => question.id === +button.dataset.id
+    );
+    updateSavedCards(markedCard);
+
     button.classList.toggle("bookmark--saved");
   })
 );
@@ -143,7 +141,6 @@ let buttonsOnScreen = [
 let questionsOnScreen = [
   ...document.querySelectorAll('[data-js="cardAnswer"]'),
 ];
-
 
 // Flip buttons to answers
 buttonsOnScreen.forEach((button) =>
@@ -182,4 +179,3 @@ questionsOnScreen.forEach((answer) => {
       .classList.toggle("card__answer__button--hidden");
   });
 });
-
