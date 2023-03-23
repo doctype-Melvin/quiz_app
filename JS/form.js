@@ -17,10 +17,6 @@ const showSuccessMessage = () => {
   successMessage.removeAttribute("hidden");
 };
 
-const clearInputFields = () => {
-  formElement.reset();
-};
-
 const initializeLocalStorage = () => {
   if (localStorage.length === 0) {
     localStorage.setItem("questions", `[]`);
@@ -58,7 +54,7 @@ formElement.addEventListener("submit", (event) => {
   );
 
   addDataToLocalStorage(newData);
-  clearInputFields();
+  formElement.reset()
   showSuccessMessage();
   setTimeout(() => {
     hideSuccessMessage();
