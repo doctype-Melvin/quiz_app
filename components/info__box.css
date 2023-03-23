@@ -1,4 +1,5 @@
-[data-js="linkToForm"] {
+[data-js="linkToForm"],
+[data-js="messageCard"] {
   height: fit-content;
   background-color: var(--contrast-light);
   color: var(--dark);

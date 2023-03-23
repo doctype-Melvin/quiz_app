@@ -54,10 +54,14 @@ formElement.addEventListener("submit", (event) => {
   );
 
   addDataToLocalStorage(newData);
+<<<<<<< HEAD
   formElement.reset()
+=======
+  formElement.reset();
+>>>>>>> feat/render_saved_cards
   showSuccessMessage();
   setTimeout(() => {
     hideSuccessMessage();
-  }, 3000);
+  }, 2000);
   console.log(JSON.parse(localStorage.getItem("questions")));
 });
