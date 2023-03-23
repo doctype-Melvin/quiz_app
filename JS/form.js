@@ -54,7 +54,9 @@ formElement.addEventListener("submit", (event) => {
   );
 
   addDataToLocalStorage(newData);
+
   formElement.reset();
+
   showSuccessMessage();
   setTimeout(() => {
     hideSuccessMessage();
