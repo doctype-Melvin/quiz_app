@@ -54,10 +54,12 @@ formElement.addEventListener("submit", (event) => {
   );
 
   addDataToLocalStorage(newData);
-  formElement.reset()
+
+  formElement.reset();
+
   showSuccessMessage();
   setTimeout(() => {
     hideSuccessMessage();
-  }, 3000);
+  }, 2000);
   console.log(JSON.parse(localStorage.getItem("questions")));
 });
