@@ -54,11 +54,7 @@ formElement.addEventListener("submit", (event) => {
   );
 
   addDataToLocalStorage(newData);
-<<<<<<< HEAD
-  formElement.reset()
-=======
-  formElement.reset();
->>>>>>> feat/render_saved_cards
+
   showSuccessMessage();
   setTimeout(() => {
     hideSuccessMessage();
